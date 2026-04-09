@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block site_title %}
+Home site
+{% endblock site_title %}
+
+{% block content %}
+    {% for article in articles %}
+    
+    {% include 'components/article_card.html' with article=article %}
+    {% empty %}
+    <span class="btn btn-secondary disabled">No detail available</span>
+    {% endfor %}
+{% endblock content %}
+

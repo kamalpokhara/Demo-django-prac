@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+{% block site_title %}
+Delete
+{% endblock site_title %}
+
+{% block content %}
+    <div class="container">
+        <div class="card text-start">
+            <div class="card-body">
+                <h4 class="card-title">{{article.title}}</h4>
+                <p class="card-text">{{article.content | safe}}</p>
+            </div>
+        </div>
+        <a href="{% url 'articles:delete' article.slug %}" class="btn btn-danger">Delete</a>
+    </div>
+
+{% endblock content %}
+
+{% block extra_js %}
+
+{% endblock extra_js %}

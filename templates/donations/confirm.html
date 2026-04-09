@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>confirm</title>
+  </head>
+  <body>
+    <form action="https://rc-epay.esewa.com.np/api/epay/main/v2/form" method="post">
+      {{form|safe}}
+      <button type="submit">Pay Now</button>
+    </form>
+    <h2>Pay with Khalti</h2>
+    <!-- This just links to your Django view that calls Khalti’s initiate API -->
+    <a href="{% url 'donations:khalti_confirm' uuid=order.uuid %}" class="btn btn-primary"> Pay with Khalti </a>
+  </body>
+</html>

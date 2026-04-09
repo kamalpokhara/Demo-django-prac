@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card text-start">
+                <div class="card-body">
+                    {% comment %} <h4 class="card-title">{{ article.title }}</h4>
+                    <p class="card-text">{{ article.content|safe }}</p> {% endcomment %}
+                    <form action="" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" id="title" class="form-control" value="{{ article.title }}">
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea name="content" id="content" class="form-control" rows="5">{{ article.content }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Article</button>
+            <a href="{% url 'articles:detail' article.slug %}" class="btn btn-secondary">Go Back</a>
+                    </form>
+
+        </div>
+{% endblock content %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/tinymce@5/tinymce.min.js"></script>
+        <script>
+            tinymce.init({
+                selector: '#content'
+            });
+        </script>
+{% endblock extra_js %}
