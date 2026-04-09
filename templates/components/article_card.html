@@ -1,0 +1,19 @@
+<div class="card text-start">
+    <div class="card-body">
+        <h4 class="card-title">{{article.title}}</h4>
+        <p class="card-text">{{article.content | truncatechars:200 |safe}}</p>
+      
+        {% if article.slug %}
+            <a class="btn btn-primary" href="{% url 'articles:detail' article.slug %}">
+                Read Article
+            </a>
+            <a class="btn btn-primary" href="{% url 'articles:update' article.slug %}">
+            Update
+            </a>
+            <a class="btn btn-danger" href="{% url 'articles:delete' article.slug %}">
+            delete
+            </a>
+
+        {% endif %}
+    </div>
+</div>
